@@ -39,6 +39,7 @@ app.use(mbaas.fhmiddleware());
 app.use('/fhdb', require('./lib/fhdb.js')());
 
 app.use('/', function(req, res) {
+  console.log('at root');
   res.end('Your Cloud App is Running.');
 });
 
