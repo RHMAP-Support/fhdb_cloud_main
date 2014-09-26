@@ -1,7 +1,11 @@
+// Feedhenry library
 var mbaas = require('fh-mbaas-express');
+
+// Express web application framework
 var express = require('express');
+
+// Allow cross-origin resource sharing, see https://www.npmjs.org/package/cors
 var cors = require('cors');
-//var mainjs = require('main.js');
 
 // Securable endpoints: list the endpoints which you want to make securable here
 var securableEndpoints = [];
@@ -14,7 +18,6 @@ app.use(cors());
 // Note: the order which we add middleware to Express here is important!
 app.use('/sys', mbaas.sys(securableEndpoints));
 app.use('/mbaas', mbaas.mbaas);
-//app.use('/cloud', mbaas.cloud(mainjs));
 
 // Note: important that this is added just before your own Routes
 app.use(mbaas.fhmiddleware());
